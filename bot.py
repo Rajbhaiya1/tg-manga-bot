@@ -113,12 +113,12 @@ def get_buttons_for_options(user_options: int):
     return InlineKeyboardMarkup(buttons)
 
 
-bot = Client('bot',
-             api_id=API_ID,
-             api_hash=API_HASH,
-             bot_token=TOKEN,
-             max_concurrent_transmissions=3)
 
+bot = Client('bot',
+             api_id=int(env_vars.get('API_ID')),
+             api_hash=env_vars.get('API_HASH'),
+             bot_token=env_vars.get('BOT_TOKEN'),
+             max_concurrent_transmissions=3)
 if dbname:
     DB(dbname)
 else:
